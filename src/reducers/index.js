@@ -1,4 +1,4 @@
-import {MAKE_GUESS, RESTART_GAME, SHOW_INFO, AURAL_UPDATE} from './actions';
+import {MAKE_GUESS, RESTART_GAME, AURAL_UPDATE} from '../actions';
 
 const initialState = {
 	guesses: [],
@@ -10,7 +10,7 @@ const initialState = {
 
 
 
-export default const gameReducer = (state=initialState, action) => {
+export default (state=initialState, action) => {
 	if(action.type === MAKE_GUESS) {
 		let feedback, guess;
 
@@ -48,9 +48,6 @@ export default const gameReducer = (state=initialState, action) => {
 			feedback: 'Make your guess!',
 			auralStatus: ''
 		}
-	}
-	if(action.type === SHOW_INFO) {
-		return {...state, showInfo: true}
 	}
 	if(action.type === AURAL_UPDATE) {
 		const { guesses, feedback } = state;
